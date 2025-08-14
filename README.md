@@ -35,6 +35,7 @@ These scripts run in the victim’s browser as if they came from the trusted sit
 - [MDN Web Docs – Cross-site scripting](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting)
 - [Google Web Fundamentals – XSS](https://web.dev/articles/security-xss)
 - [Content Security Policy (CSP) – MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+- [Cross Site Scripting Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
 
 ---
 
@@ -48,10 +49,9 @@ Below are instructions for running and demonstrating each project.
 
 **Purpose:** Show how `.html()` executes HTML/JS from user input, and how `.text()` or sanitization prevents it.
 
-**Run in Visual Studio:**
-1. Open the `xss-jquery` folder in Visual Studio.
-2. Set `index.html` as the **Startup Item**.
-3. Run with **IIS Express** (Ctrl+F5).
+**Run in Terminal:**
+1. Open the `xss-jquery` folder in a terminal window.
+2. PowerShell: npx http-server . -p 8080 in the xss-jquery folder
 
 **Demo flow:**
 1. Ensure the input contains:
@@ -75,15 +75,9 @@ Open the xss-angular folder.
 
 Ensure you have the Angular CLI installed globally:
 
-bash
-Copy
-Edit
 npm install -g @angular/cli
-In the Terminal:
 
-bash
-Copy
-Edit
+In the Terminal:
 npm install
 ng serve
 Open the provided local URL (usually http://localhost:4200).
@@ -107,9 +101,6 @@ Ensure Node.js is installed (v18+ recommended).
 
 In the Terminal:
 
-bash
-Copy
-Edit
 npm install
 npm run dev
 Open http://localhost:3000.
@@ -117,18 +108,10 @@ Open http://localhost:3000.
 Demo flow:
 
 Navigate to:
-
-php-template
-Copy
-Edit
 http://localhost:3000/?q=<img src=x onerror=alert('xss')>
 With the ❌ VULNERABLE code uncommented, the alert fires.
 
 Switch to the ✅ SAFE version using:
-
-js
-Copy
-Edit
 DOMPurify.sanitize(userHtml)
 Reload → The dangerous attribute is removed, no alert.
 
