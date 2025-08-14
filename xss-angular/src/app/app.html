@@ -1,0 +1,25 @@
+<div style="font-family: system-ui; padding: 16px">
+  <h1>Angular 20 XSS Demo</h1>
+  <p>Paste something like: <code>&lt;img src=x onerror=alert('xss')&gt;</code></p>
+
+  <textarea [(ngModel)]="userInput" rows="4" style="width:100%"></textarea>
+
+  <h3 style="margin-top:16px">Preview</h3>
+
+  <!-- Toggle ONE block at a time for your demo -->
+  <!-- ❌ DANGEROUS: Disables Angular’s sanitization (DEMO ONLY) -->
+   <div [innerHTML]="trustedBypass" class="box"></div> 
+  <!-- ✅ SAFE A: Angular auto-sanitizes [innerHTML] (dangerous attributes like onerror are stripped) -->
+  <!--<div [innerHTML]="userInput" class="box"></div>-->
+
+  <!-- ✅ SAFE B: Fully escaped text (no HTML interpreted) -->
+   <!--<div [textContent]="safeText" class="box"></div>--> 
+</div>
+
+<style>
+  .box {
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin-top: 8px;
+  }
+</style>
