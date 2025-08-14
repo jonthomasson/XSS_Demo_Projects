@@ -8,10 +8,10 @@ export async function getServerSideProps({ query }) {
 export default function Home({ userHtml }) {
     // --- TOGGLE: VULNERABLE vs SAFE ---
 
-    // ❌ VULNERABLE (comment out the safe version below to demo this)
+    // VULNERABLE (comment out the safe version below to demo this)
      const content = { __html: userHtml };
 
-    // ✅ SAFE: sanitize on the server OR here
+    // SAFE: sanitize on the server OR here
     //const content = { __html: DOMPurify.sanitize(userHtml) };
 
     return (

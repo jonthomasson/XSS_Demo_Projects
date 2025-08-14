@@ -15,16 +15,14 @@ export class App {
   userInput: string = `<em>Try &lt;img src=x onerror=alert('xss')&gt;</em>`;
 
   /**
-   * ❌ DANGEROUS:
    * This disables Angular’s sanitization and will allow injected HTML/JS through.
-   * Use ONLY to demonstrate what NOT to do.
    */
   get trustedBypass(): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(this.userInput);
   }
 
   /**
-   * ✅ SAFE (escaped as text):
+   * SAFE (escaped as text):
    * Renders the exact characters; no HTML interpretation.
    */
   get safeText(): string {
