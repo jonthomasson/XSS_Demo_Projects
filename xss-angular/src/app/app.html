@@ -1,4 +1,4 @@
-<div style="font-family: system-ui; padding: 16px">
+<div style="padding: 16px">
   <h1>Angular XSS Demo</h1>
   <p>Paste something like: <code>&lt;img src=x onerror=alert('xss')&gt;</code></p>
 
@@ -8,9 +8,9 @@
 
   <!-- Toggle ONE block at a time for your demo -->
   <!-- DANGEROUS: Disables Angular’s sanitization -->
-   <div [innerHTML]="trustedBypass" class="box"></div> 
+   <!--<div [innerHTML]="trustedBypass" class="box"></div>--> 
   <!-- SAFE A: Angular auto-sanitizes [innerHTML] (dangerous attributes like onerror are stripped) -->
-  <!--<div [innerHTML]="userInput" class="box"></div>-->
+  <div [innerHTML]="userInput" class="box"></div>
 
   <!-- SAFE B: Fully escaped text (no HTML interpreted) -->
    <!--<div [textContent]="safeText" class="box"></div>--> 
